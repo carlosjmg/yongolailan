@@ -1,12 +1,3 @@
-git init  # Inicializa el repositorio local
-git add .  # Agrega todos los archivos a Git
-git commit -m "Primer commit de mi sitio web"  # Haz un commit de tus archivos
-
-git remote add origin https://github.com/<carlosjmg>/<yongolailan.xyz>.git
-    git push -u origin master  # Subir los archivos a GitHub
-
-    git init
-
 
 <!DOCTYPE html>
 <html lang="en">
