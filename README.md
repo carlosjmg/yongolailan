@@ -57,9 +57,6 @@
   <!-- Dependencias necesarias para Vanta.js -->
 
 
-
- 
-  "></script>
   <script>
     // Inicialización del efecto Vanta Waves
     VANTA.BIRDS({
