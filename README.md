@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yongolailan - Web Under Construction</title>
-  <!-- Agregando Google Fonts para una tipografía más moderna -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Reiniciamos márgenes y establecemos altura completa */
     html, body {
@@ -15,7 +11,7 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: 'Montserrat', sans-serif; /* Fuente más moderna */
+      font-family: monospace; /* Monoespacio para mantener estilo especial */
     }
     /* Contenedor para el fondo Vanta */
     #vanta-bg {
@@ -36,16 +32,18 @@
       color: #fff;
       z-index: 2;
     }
-    /* Logo responsive */
-    .content img {
-      max-width: 600px; /* Puedes ajustar el tamaño máximo */
-      width: 100%;
-      height: auto;
+    /* Estilo para el texto del logo */
+    .logo-text {
+      font-size: 5em; /* Texto muy grande */
+      font-weight: 700; /* Negrita */
+      letter-spacing: 5px; /* Espaciado entre letras */
+      margin-bottom: 25px; /* Espacio debajo del logo */
+      text-shadow: 0 0 15px rgba(255, 145, 0, 0.5); /* Efecto de resplandor suave */
     }
     /* Estilo para el mensaje principal */
-    .content h1 {
+    .construction-text {
       margin-top: 25px;
-      font-size: 1.5em; /* Texto más grande */
+      font-size: 1.2em; /* Texto un poco más pequeño */
       font-weight: 700; /* Texto en negrita */
       letter-spacing: 2px; /* Espaciado entre letras */
       text-transform: uppercase; /* Texto en mayúsculas */
@@ -57,6 +55,8 @@
       color: #ff9100; /* Naranja que combina con las palomas */
       text-decoration: none;
       font-size: 1.2em;
+      font-weight: 700;
+      letter-spacing: 1px;
       transition: all 0.3s ease;
     }
     /* Efecto hover para el enlace */
@@ -69,11 +69,11 @@
 <body>
   <!-- Contenedor del fondo animado -->
   <div id="vanta-bg"></div>
-  <!-- Contenedor del logo y mensaje -->
+  <!-- Contenedor del texto y mensaje -->
   <div class="content">
-    <img src="logo.png" alt="Yongolailan Logo" />
-    <h1>WEB UNDER CONSTRUCTION</h1>
-    <a href="https://linktr.ee/Yongolailan" target="_blank">Yongolailan's Link Tree</a>
+    <div class="logo-text">𝚿𝐎𝐍𝐆𝐎𝐋𝐀𝐈𝐋𝐀𝐍</div>
+    <div class="construction-text">𝐏𝐎𝐑𝐓𝐀𝐋 𝐔𝐍𝐃𝐄𝐑 𝐂𝐎𝐍𝐒𝐓𝐑𝐔𝐂𝐓𝐈𝐎𝐍</div>
+    <a href="https://linktr.ee/Yongolailan" target="_blank">𝐘𝐨𝐧𝐠𝐨𝐥𝐚𝐢𝐥𝐚𝐧'𝐬 𝐋𝐢𝐧𝐤 𝐓𝐫𝐞𝐞</a>
   </div>
   <!-- Dependencias necesarias para Vanta.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
@@ -102,4 +102,3 @@
   </script>
 </body>
 </html>
-
