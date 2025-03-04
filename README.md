@@ -2,17 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yongolailan - Web Under Construction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Yongolailan - Portal Under Construction</title>
   <style>
-    /* Reiniciamos márgenes y establecemos altura completa */
+    /* Estilos base para toda la página */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: monospace; /* Monoespacio para mantener estilo especial */
+      font-family: monospace;
     }
+    
     /* Contenedor para el fondo Vanta */
     #vanta-bg {
       width: 100%;
@@ -22,6 +23,7 @@
       left: 0;
       z-index: 1;
     }
+    
     /* Contenedor del contenido centrado */
     .content {
       position: absolute;
@@ -31,34 +33,77 @@
       text-align: center;
       color: #fff;
       z-index: 2;
+      width: 100%;
+      padding: 0 20px; /* Añadido padding para móviles */
+      box-sizing: border-box;
     }
+    
     /* Estilo para el texto del logo */
     .logo-text {
-      font-size: 5em; /* Texto muy grande */
-      font-weight: 700; /* Negrita */
-      letter-spacing: 5px; /* Espaciado entre letras */
-      margin-bottom: 25px; /* Espacio debajo del logo */
-      text-shadow: 0 0 15px rgba(255, 145, 0, 0.5); /* Efecto de resplandor suave */
+      font-size: 5em; /* Tamaño base */
+      font-weight: 700;
+      letter-spacing: 5px;
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
+      word-wrap: break-word; /* Asegura que el texto se ajuste */
     }
+    
     /* Estilo para el mensaje principal */
     .construction-text {
       margin-top: 25px;
-      font-size: 1.2em; /* Texto un poco más pequeño */
-      font-weight: 700; /* Texto en negrita */
-      letter-spacing: 2px; /* Espaciado entre letras */
-      text-transform: uppercase; /* Texto en mayúsculas */
+      font-size: 1.2em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      word-wrap: break-word; /* Asegura que el texto se ajuste */
     }
+    
     /* Estilo para el enlace de Linktree */
     .content a {
       display: inline-block;
       margin-top: 15px;
-      color: #ff9100; /* Naranja que combina con las palomas */
+      color: #ff9100;
       text-decoration: none;
       font-size: 1.2em;
       font-weight: 700;
       letter-spacing: 1px;
       transition: all 0.3s ease;
+      word-wrap: break-word; /* Asegura que el texto se ajuste */
     }
+    
+    /* Estilos específicos para dispositivos más pequeños */
+    @media screen and (max-width: 768px) {
+      .logo-text {
+        font-size: 2.5em; /* Reducir tamaño para pantallas pequeñas */
+        letter-spacing: 2px;
+      }
+      
+      .construction-text {
+        font-size: 1em;
+        letter-spacing: 1px;
+      }
+      
+      .content a {
+        font-size: 1em;
+      }
+    }
+    
+    /* Estilos para dispositivos muy pequeños */
+    @media screen and (max-width: 375px) {
+      .logo-text {
+        font-size: 2em;
+        letter-spacing: 1px;
+      }
+      
+      .construction-text {
+        font-size: 0.8em;
+      }
+      
+      .content a {
+        font-size: 0.9em;
+      }
+    }
+    
     /* Efecto hover para el enlace */
     .content a:hover {
       color: #ffffff;
@@ -79,26 +124,35 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
   <script>
-    // Inicialización del efecto Vanta Birds
-    VANTA.BIRDS({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      backgroundColor: 0x000000, // Fondo negro
-      color1: 0xff6f00, // Naranja
-      color2: 0xff9100, // Naranja más claro
-      birdSize: 0.90,
-      wingSpan: 35.00,
-      speedLimit: 4.00,
-      separation: 35.00,
-      alignment: 23.00,
-      cohesion: 69.00
-    })
+    // Inicialización del efecto Vanta Birds adaptado para dispositivos móviles
+    function initVanta() {
+      const isMobile = window.innerWidth <= 768;
+      VANTA.BIRDS({
+        el: "#vanta-bg",
+        mouseControls: !isMobile,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: isMobile ? 1.50 : 1.00, // Ajuste para móviles
+        backgroundColor: 0x000000,
+        color1: 0xff6f00,
+        color2: 0xff9100,
+        birdSize: isMobile ? 0.70 : 0.90,
+        wingSpan: 35.00,
+        speedLimit: 4.00,
+        separation: 35.00,
+        alignment: 23.00,
+        cohesion: 69.00
+      })
+    }
+
+    // Inicializar Vanta al cargar la página
+    initVanta();
+
+    // Reiniciar Vanta si cambia el tamaño de la ventana
+    window.addEventListener('resize', initVanta);
   </script>
 </body>
 </html>
